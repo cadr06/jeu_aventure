@@ -1,0 +1,24 @@
+[
+  {
+    "score" : -10,
+    "name" : "celine adrar",
+    "visitedRooms" : [
+
+    ]
+  },
+  {
+    "score" : 145,
+    "name" : "ahcene laidi",
+    "visitedRooms" : [
+      "Salle1",
+      "Salle9",
+      "Salle2",
+      "Salle4",
+      "Salle5",
+      "Salle6",
+      "Salle3",
+      "Salle7",
+      "Salle8"
+    ]
+  }
+]

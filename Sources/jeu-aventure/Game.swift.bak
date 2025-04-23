@@ -1,0 +1,78 @@
+import Foundation
+
+class Game {
+    var timer: GameTimer
+    var rooms: [String: Room]
+    var currentRoom: Room
+    var puzzlesById: [String: Puzzle]
+    var inventory: [Item] = []
+
+
+    init(rooms: [String: Room], startingRoomName: String, puzzlesById: [String: Puzzle]) {
+        self.timer = GameTimer(timeLimit: 300)
+        self.rooms = rooms
+        self.currentRoom = rooms[startingRoomName]!  // force unwrap car tu sais que la salle existe
+        self.puzzlesById = puzzlesById
+    }
+
+    func start() {
+    timer.start()  // Démarre le timer
+
+    print("Bienvenue dans le jeu d'aventure !")
+
+    while true {
+        // Vérifie si le temps est écoulé
+        if !timer.checkTime() {
+            print("⏰ Temps écoulé ! Vous avez perdu.")
+            break
+        }
+
+        // Affiche la description de la salle actuelle
+        print("\n📍 Vous êtes dans : \(currentRoom.name)")
+        print(currentRoom.description)
+
+        // Affiche le temps restant
+        print("🕒 Temps restant : \(timer.timeRemaining()) secondes")
+
+        // Affiche les options au joueur
+        print("Que voulez-vous faire ?")
+        if let input = readLine() {
+            processCommand(input)
+        }
+    }
+}
+func processCommand(_ input: String) {
+    let command = input.lowercased()
+
+    if command == "quitter" {
+        print("👋 Merci d'avoir joué !")
+        exit(0)
+    } else if command == "inventaire" {
+        print("🎒 Inventaire :")
+        if inventory.isEmpty {
+            print("  - Vide")
+        } else {
+            for item in inventory {
+                print("  - \(item.name): \(item.description)")
+            }
+        }
+    } else if command.starts(with: "aller ") {
+        let destination = String(command.dropFirst(5))
+        if let nextRoom = currentRoom.exits[destination] {
+            if let room = rooms[nextRoom] {
+                currentRoom = room
+                print("🚪 Vous entrez dans la salle \(room.name).")
+            } else {
+                print("❌ Salle inconnue.")
+            }
+        } else {
+            print("❌ Vous ne pouvez pas aller par là.")
+        }
+    } else {
+        print("❓ Commande inconnue.")
+    }
+}
+
+
+
+}
