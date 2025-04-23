@@ -1,0 +1,283 @@
+{
+  "rooms": [
+    {
+      "name": "Salle1",
+      "description": "C'est une salle sombre.",
+      "items": [
+        {
+          "name": "clé",
+          "description": "Une vieille clé.",
+          "isTakable": true
+        },
+        {
+          "name": "miroir magique",
+          "description": "Un miroir qui reflète une image étrange.",
+          "isTakable": true 
+        }
+      ],
+      "characters": [
+        {
+          "name": "Garde",
+          "description": "Un vieux garde",
+          "dialogue": [
+            "Halte ! Qui va là ?",
+            "Tu ne passeras pas sans résoudre l'énigme."
+          ]
+        }
+      ],
+      "puzzles": [
+        {
+          "id": "puzzle1",
+          "question": "Quel est le mot de passe? (indice: c'est quoi ton but de ce jeu ?)",
+          "correctAnswer": "gagner"
+        }
+      ],
+      "exits": {
+        "nord": "Salle2",
+        "sud": "Salle6",
+        "est": "Salle4",
+        "ouest": "Salle8"
+      },
+      "requiredItems": ["clé"],
+      "coordinates": { "x": 1, "y": 1 }
+    },
+    {
+      "name": "Salle2",
+      "description": "Une grande salle avec des murs en pierre.",
+      "items": [
+        {
+          "name": "épée",
+          "description": "Une épée ancienne.",
+          "isTakable": true
+        }
+      ],
+      "characters": [{
+        "name": "Guerrier",
+        "description": "Un courageux Guerrier qui a survécu.",
+        "dialogue": ["si t'as besoin de plus de points pour passer à la salle 3, retourne à la salle 1."]
+      }],
+      "puzzles": [],
+      "exits": {
+        "sud": "Salle1",
+        "est": "Salle3",
+        "ouest": "Salle9"
+      },
+      "requiredItems": ["clé"],
+      "coordinates": { "x": 0, "y": 1 }
+    },
+    {
+      "name": "Salle3",
+      "description": "Une salle remplie de poussière.",
+      "items": [],
+      "characters": [],
+      "puzzles": [],
+      "exits": {
+        "sud": "Salle4",
+        "ouest": "Salle2"
+         
+      },
+      "requiredItems": ["épée"],
+      "coordinates": { "x": 0, "y": 2 }
+    },
+    {
+      "name": "Salle4",
+      "description": "Une bibliothèque mystérieuse, avec des livres volants.",
+      "items": [
+        {
+          "name": "livre magique",
+          "description": "Un livre qui luit dans le noir.",
+          "isTakable": true
+        }
+      ],
+      "characters": [
+        {
+          "name": "Fantôme",
+          "description": "Un esprit bibliothécaire.",
+          "dialogue": []
+        }
+      ],
+      "puzzles": [
+        {
+          "id": "puzzle2",
+          "question": "Quel est l’auteur de 'Les Fleurs du mal' ?",
+          "correctAnswer": "Baudelaire"
+        }
+      ],
+      "exits": {
+        "ouest": "Salle1",
+        "sud": "Salle5",
+        "nord": "Salle3"
+      },
+      "requiredItems": ["clé", "épée"],
+      "coordinates": { "x": 1, "y": 2 }
+    },
+    {
+      "name": "Salle5",
+      "description": "Un laboratoire abandonné avec des fioles cassées.",
+      "items": [
+        {
+          "name": "potion inconnue",
+          "description": "Une fiole verte fumante.",
+          "isTakable": true
+        }
+      ],
+      "characters": [],
+      "puzzles": [],
+      "exits": {
+        "nord": "Salle4",
+        "ouest": "Salle6"
+      },
+      "requiredItems": ["livre magique"],
+      "coordinates": { "x": 2, "y": 2 }
+    },
+    {
+      "name": "Salle6",
+      "description": "Une prison souterraine froide et humide.",
+      "items": [],
+      "characters": [
+        {
+          "name": "Prisonnier",
+          "description": "Un homme enchaîné murmurant des secrets.",
+          "dialogue": []
+        }
+      ],
+      "puzzles": [
+        {
+          "id": "puzzle3",
+          "question": "Combien y a-t-il de barreaux à la fenêtre (indice : nombre de salles) ?",
+          "correctAnswer": "9"
+        }
+      ],
+      "exits": {
+        "nord": "Salle1",
+        "ouest": "Salle7"
+      },
+      "requiredItems": ["potion inconnue"],
+      "coordinates": { "x": 2, "y": 1 }
+    },
+    {
+      "name": "Salle7",
+      "description": "Une salle circulaire avec des miroirs déformants.",
+      "items": [
+        {
+          "name": "miroir magique",
+          "description": "Un miroir qui reflète une image étrange.",
+          "isTakable": false
+        }
+      ],
+      "characters": [
+        {
+          "name": "Magicien",
+          "description": "Un bonhomme inconnue.",
+          "dialogue": [
+            "si jamais t'as oublier un objet dans la salle 1, retourne car il va t'aider."
+          ]
+        }
+      ],
+      "puzzles": [
+        {
+          "id": "puzzle4",
+          "question": "Quelle est la couleur du miroir ?",
+          "correctAnswer": "argenté"
+        }
+      ],
+      "exits": {
+        "est": "Salle6",
+        "nord": "Salle8"
+      },
+      "requiredItems": ["miroir magique"],
+      "coordinates": { "x": 2, "y": 0 }
+    },
+    {
+      "name": "Salle8",
+      "description": "Une salle de trésor, remplie de pièces d'or et de bijoux.",
+      "items": [
+        {
+          "name": "clé de sortie",
+          "description": "la clé qui va te libérer de ce temple.",
+          "isTakable": true
+        }
+      ],
+      "characters": [],
+      "puzzles": [
+        {
+          "id": "puzzleFinale",
+          "question": "Je suis la fin de toutes choses, mais aussi le début d’un renouveau. Qui suis-je ?",
+          "correctAnswer": "le temps"
+        }
+      ],
+      "exits": {
+        "sud": "Salle7",
+        "nord": "Salle9"
+
+      },
+      "requiredItems": ["clé", "épée", "livre magique", "potion inconnue", "miroir magique"],
+      "coordinates": { "x": 1, "y": 0 }
+    },
+    {
+      "name": "Salle9",
+      "description": "La salle finale. Une grande porte se dresse au nord, gardée par une inscription mystérieuse.",
+      "items": [{"name": "trésor",
+          "description": "Un coffre rempli d'or et de pierres précieuses.",
+          "isTakable": true}],
+      "characters": [{
+        "name": "garde de sortie",
+        "description": "une personne importante pour le joueur.",
+        "dialogue": [
+          "récupere le trésor si tu veux sortir."
+        ]
+      }],
+      "puzzles": [
+        {
+          "id": "puzzleFinale",
+          "question": "Qui a creer ce jeu ?",
+          "correctAnswer": "celine"
+        }
+      ],
+      "exits": {
+        "sud": "Salle8"
+      },
+      "requiredItems": ["clé de sortie","clé"],
+      "coordinates": { "x": 0, "y": 0 }
+    }
+  ],
+  "inventory": [
+    {
+      "name": "clé",
+      "description": "Une vieille clé.",
+      "isTakable": true
+    },
+    {
+      "name": "épée",
+      "description": "Une épée ancienne.",
+      "isTakable": true
+    },
+    {
+      "name": "potion inconnue",
+      "description": "Une fiole verte fumante.",
+      "isTakable": true
+    },
+    {
+      "name": "livre magique",
+      "description": "Un livre qui luit dans le noir.",
+      "isTakable": true
+    },
+    {
+      "name": "miroir magique",
+      "description": "Un miroir qui reflète une image étrange.",
+      "isTakable": true
+    },
+    {
+      "name": "clé de sortie",
+      "description": "la clé qui va te libérer de ce labyrinthe.",
+      "isTakable": true
+    }
+  ],
+  "solvedPuzzles": []
+  
+
+  
+  
+
+
+}
